@@ -26,6 +26,7 @@ Route::resource('/questions', 'QuestionsController')->except('show');
 Route::resource('questions.answers', 'AnswersController')->except(['index', 'cretate', 'show']);
 
 Route::get('/questions/{slug}', 'QuestionsController@show')->name('questions.show');
+Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 
 // Route::get('/q', 'QuestionsController@index')->name('q');
 
