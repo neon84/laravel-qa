@@ -37,28 +37,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function questions(){
+    public function questions()
+    {
         return $this->hasMany(Question::class);
     }
 
-    public function getUrlAttribute(){
+    public function getUrlAttribute()
+    {
         // return route("questions.show", $this->id);
         return '#';
     }
 
-    public function answers(){
+    public function answers()
+    {
         return $this->hasMany(Answer::class);
     }
 
-    public function getAvatarAttribute(){
+    public function getAvatarAttribute()
+    {
         $email = $this->email;
         // $default = "https://www.somewhere.com/homestar.jpg";
         $size = 32;
-        
-        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
 
+        return "https://www.gravatar.com/avatar/" . md5(strtolower(trim($email))) . "?s=" . $size;
     }
-    
 
-
+    public function favorites()
+    {
+        return $this->belongsToMany(Question::class, 'favorites')->withTimestamps();; //, 'user_id', 'question_id');
+    }
 }
