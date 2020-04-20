@@ -34,6 +34,8 @@ Route::delete('/questions/{question}/favorites', 'FavoriteController@destroy')->
 
 Route::post('/questions/{question}/vote', 'voteQuestionController');
 
+Route::post('/answers/{answer}/vote', 'voteAnswerController');
+
 // Route::get('/q', 'QuestionsController@index')->name('q');
 
 // Auth::routes();
