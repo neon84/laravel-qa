@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class QuestionsController extends Controller
 {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth')->except('index', 'show');
     }
     /**
@@ -22,7 +23,7 @@ class QuestionsController extends Controller
     {
         //
         // DB::enableQueryLog();
-        $questions = Question::with('user')->latest()->paginate(100);
+        $questions = Question::with('user')->latest()->paginate(3);
 
         return view('questions.index', compact('questions'));
 
@@ -40,7 +41,6 @@ class QuestionsController extends Controller
     {
         $question = new Question();
         return view('questions.create', compact('question'));
-
     }
 
     /**
@@ -93,7 +93,6 @@ class QuestionsController extends Controller
         $this->authorize("update", $question);
         $question->update($request->only('title', 'body'));
         return redirect('/questions')->with('success', 'Question Updated!!');
-
     }
 
     /**

@@ -8,24 +8,25 @@
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
-    background-color : #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 
 .counters {
     margin-right: 30px;
-    font-size : 10px;
+    font-size: 10px;
     text-align: center;
 
     strong {
         display: block;
         font-size: 2em;
     }
-    
-    
-    
-    .vote, .answer{
+
+
+
+    .vote,
+    .answer {
         width: 60px;
         height: 60px;
         // border: 1px solid red;
@@ -33,7 +34,8 @@
 
     .status {
         &.unanswered //class ="status ununswered"
-        {
+
+            {
             border: 'none';
         }
 
@@ -42,13 +44,14 @@
             color: $color-green;
         }
 
-        &.answered-accepted{
+        &.answered-accepted {
             background: $color-green;
             color: $color-white;
         }
 
-     
+
     }
+
     .view {
         margin-top: 10px;
     }
@@ -57,51 +60,64 @@
 }
 
 
-form.form-delete{
+form.form-delete {
     display: inline;
 }
 
-.vote-controls{
+.vote-controls {
     min-width: 60px;
     margin-right: 30px;
     text-align: center;
     color: $gray-700;
 
-    span, a {
+    span,
+    a {
         display: block;
 
     }
 
     span {
-        &.votes-count{
-            font-size:25px;
+        &.votes-count {
+            font-size: 25px;
         }
-        &.favorites-count{
-            font-size:12px;
+
+        &.favorites-count {
+            font-size: 12px;
         }
     }
 
-    a{
+    a {
         cursor: pointer;
         color: $gray-600;
 
-        &.off, &.off:hover {
+        &.off,
+        &.off:hover {
             color: $gray-500;
         }
-        
-       
 
-        &.favorite{
-            &.favorited, &.favorited:hover{
+
+
+        &.favorite {
+
+            &.favorited,
+            &.favorited:hover {
                 color: $warning;
             }
         }
 
-        
 
-        &.vote-accepted{
+
+        &.vote-accepted {
             color: $green;
         }
     }
-    
+
+}
+
+.post {
+    padding: 20px 0;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid rgba($black, .1);
+    }
 }
