@@ -21,7 +21,8 @@
 
                 <div class= "card-body">
                     @include('layouts._messages')
-                   @foreach($questions as $question)
+
+                   @forelse($questions as $question)
                         <div class="media">
                             <div class="d-flex flex-column counters pull-left">
                                 {{-- <img  class="mr-3" alt="..."> --}}
@@ -62,7 +63,13 @@
 
                         </div>
                             <hr>
-                   @endforeach
+                   @empty
+                    <div class="alert alert-warning">
+                        <strong> Sorry </strong> No Questoins available.
+                    </div>
+                       
+                   
+                   @endforelse
                    <div >
                        {{$questions->links()}} 
                    </div>
